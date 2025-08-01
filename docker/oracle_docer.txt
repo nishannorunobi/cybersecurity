@@ -33,3 +33,21 @@ BEGIN
     :NEW.updated_at := CURRENT_TIMESTAMP;
 END;
 /
+
+
+-- Inserting a new user with a unique username, email, and password hash
+INSERT INTO users (username, password_hash, email, full_name, is_active)
+VALUES ('johndoe', 'hashed_password_123', 'johndoe@example.com', 'John Doe', 'Y');
+
+-- Inserting another user
+INSERT INTO users (username, password_hash, email, full_name, is_active)
+VALUES ('janedoe', 'hashed_password_456', 'janedoe@example.com', 'Jane Doe', 'Y');
+
+-- Inserting a user with an inactive status
+INSERT INTO users (username, password_hash, email, full_name, is_active)
+VALUES ('inactiveuser', 'hashed_password_789', 'inactiveuser@example.com', 'Inactive User', 'N');
+
+-- Inserting a user without an email (email is nullable)
+INSERT INTO users (username, password_hash, full_name, is_active)
+VALUES ('nouseremail', 'hashed_password_012', 'No Email User', 'Y');
+
